@@ -7,3 +7,8 @@ SQLACADEMY_task36
 
 Поля в результирующей таблице:
 *
+
+РЕШЕНИЕ:
+SELECT *
+FROM student
+WHERE address LIKE '%Pushkina%';
