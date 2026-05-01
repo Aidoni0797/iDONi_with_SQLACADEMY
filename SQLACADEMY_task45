@@ -1,0 +1,22 @@
+SQLACADEMY_task45
+
+Самые используемые кабинеты
+
+Какие кабинеты чаще всего использовались для проведения занятий?
+Выведите те, которые использовались максимальное количество раз.
+
+Поля в результирующей таблице:
+classrom
+
+РЕШЕНИЕ:
+SELECT classroom
+FROM schedule
+GROUP BY classroom
+HAVING COUNT(*) = (
+    SELECT MAX(cnt)
+    FROM (
+        SELECT COUNT(*) AS cnt
+        FROM schedule
+        GROUP BY classroom
+    ) AS t
+);
