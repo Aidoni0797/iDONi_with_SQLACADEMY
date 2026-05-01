@@ -9,3 +9,10 @@ SQLACADEMY_task47
 
 Поля в результирующей таблице:
 count
+
+РЕШЕНИЕ:
+SELECT COUNT(*) AS count
+FROM teacher t
+JOIN schedule s ON t.id = s.teacher
+WHERE t.last_name = 'Krauze'
+  AND s.date = '2019-08-30';
