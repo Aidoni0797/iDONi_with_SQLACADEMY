@@ -6,3 +6,8 @@ SQLACADEMY_task41
 
 Поля в результирующей таблице:
 start_pair
+
+РЕШЕНИЕ:
+SELECT start_pair
+FROM Timepair
+WHERE id = 4;
