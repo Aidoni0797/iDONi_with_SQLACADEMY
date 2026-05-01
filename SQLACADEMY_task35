@@ -11,3 +11,8 @@ SQLACADEMY_task35
 
 Поля в результирующей таблице:
 count
+
+РЕШЕНИЕ:
+SELECT COUNT(DISTINCT classroom) AS count
+FROM schedule
+WHERE date = '2019-09-02';
