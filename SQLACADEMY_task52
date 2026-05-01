@@ -1,0 +1,12 @@
+SQLACADEMY_task52
+
+Добавить тип товара "auto".
+
+В качестве первичного ключа (good_type_id) укажите
+количество записей в таблице + 1.
+
+РЕШЕНИЕ:
+INSERT INTO GoodTypes (good_type_id, good_type_name)
+SELECT 
+    (SELECT COUNT(*) + 1 FROM GoodTypes),
+    'auto';
