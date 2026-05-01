@@ -7,4 +7,17 @@ SQLACADEMY_task49
 напрмиер, 96.0201.
 
 Используйте конструкцию "as percent" для представления результата
-вычисления. Это необходимо для коррект
+вычисления. Это необходимо для корректной проверки.
+
+Поля в результирующей таблице:
+percent
+
+РЕШЕНИЕ:
+SELECT 
+    ROUND(
+        COUNT(CASE WHEN c.name = '10 A' THEN 1 END) * 100.0 / COUNT(*),
+        4
+    ) AS percent
+FROM student s
+JOIN student_in_class sic ON sic.student = s.id
+JOIN class c ON sic.class = c.id;
