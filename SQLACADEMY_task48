@@ -11,3 +11,11 @@ SQLACADEMY_task48
 
 Поля в результирующей таблице:
 name, count
+
+РЕШЕНИЕ:
+SELECT c.name, COUNT(sic.student) AS count
+FROM class c
+JOIN student_in_class sic ON sic.class = c.id
+GROUP BY c.name
+HAVING COUNT(sic.student) > 0
+ORDER BY count DESC;
