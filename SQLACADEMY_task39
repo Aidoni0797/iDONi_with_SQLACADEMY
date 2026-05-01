@@ -1,0 +1,18 @@
+SQLACADEMY_task39
+
+Количество обучающихся в 10 В классе
+
+Сколько обучающихся в 10 В классе?
+
+Используйте конструкцию "as count" для агрегатной функции подсчета
+количества учащихся. Это необходимо для корректной проверки.
+
+Поля в результирующей таблице:
+count
+
+РЕШЕНИЕ:
+SELECT COUNT(*) AS count
+FROM student 
+JOIN student_in_class ON student_in_class.student = student.id
+JOIN class ON student_in_class.class = class.id 
+WHERE class.name = '10 B';
