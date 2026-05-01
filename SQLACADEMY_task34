@@ -9,3 +9,9 @@ SQLACADEMY_task34
 
 Поль в результирующей таблице:
 count
+
+РЕШЕНИЕ:
+
+SELECT COUNT(*) AS count
+FROM class
+WHERE name LIKE '10%';
