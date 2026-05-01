@@ -13,3 +13,9 @@ SQLACADEMY_task42
 
 Поля в результирующей таблице:
 time
+
+РЕШЕНИЕ:
+SELECT TIMEDIFF(t4.end_pair, t2.start_pair) AS time
+FROM Timepair t2, Timepair t4
+WHERE t2.id = 2
+  AND t4.id = 4;
