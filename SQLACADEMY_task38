@@ -9,3 +9,8 @@ SQLACADEMY_task38
 
 Поля в результирующей таблице:
 count
+
+РЕШЕНИЕ:
+SELECT COUNT(*) AS count
+FROM student
+WHERE first_name = 'Anna';
