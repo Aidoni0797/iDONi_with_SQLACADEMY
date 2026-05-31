@@ -1,0 +1,6 @@
+PT-5
+
+Extracting sensitive data via verbose SQL error messages
+
+Microconfiguration of the database sometimes results in verbose error messages. These can provide information
+that may be useful to a
