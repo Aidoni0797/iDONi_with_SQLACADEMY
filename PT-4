@@ -40,3 +40,7 @@ condition is true.
 
 Using this technique, you can retrieve data by testing one character at a time:
 xyz' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a
+
+Note 
+There are different ways of triggering conditional errors, and different techniques work best on different database
+types. For more details, see the SQL injection cheat sheet.
