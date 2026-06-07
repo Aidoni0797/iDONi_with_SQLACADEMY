@@ -71,3 +71,7 @@ one piece at a time. More usefully, data can be exfiltrated directly within the 
 A variety of network protocols can be used for this purpose, but typically the most effective is DNS (domain name service).
 Many production networks allow free egress of DNS queries, because they're essential for the normal operation of production
 systems.
+
+Exploting blind SQl injection using out-of-band (OAST) techniques-Continued
+
+The easiest and most reliable tool for using out-of-band techniques is Burp Collaborator.
