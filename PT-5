@@ -101,6 +101,31 @@ This lookup allows you to view the captured password:
 S3cure.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net
 
 Out-of-band  (OAST) techniques are a powerful way to detect and exploit blind SQL injection, due to the high chance of success
-and the ability
+and the ability to directly exfiltrate data within the out-of-band channel. For this reason, OAST techniques for blind 
+explotaition do work.
 
+Note
+
+There are various ways of triggering out-of-band interactions, and different types of database. For more details, see 
+the SQL injection cheat sheet.
+
+
+SQL injection in different contexts
+
+In the previous labs, you used the query string to inject your malicious SQL payload. However, uo can perform SQL injection
+attackts using any controllable input that is processed as a SQL query by the applicatoin. For example, some websites
+take input in JSON or XML format and use this to query the database.
+
+These different formats may provide different ways for you to obfuscate attacks that are otherwise blocked due to WAFs 
+and other defense mechanisms. Weak and other defense mechanisms. Weak implementations often look for common SQl injection
+keywords within the request, so you may be able to bypass these filters by encoding or escaping characters in the 
+prohibited keywords. For example, the following XML-based SQL injection uses an XML escape sequence to encode the s
+character in SELECT.
+
+<stockCheck>
+    <productId>123</productId>
+    <storeId>999 &#x53;ELECT * FROM information_schema.tables</storeId>
+</stockCheck>
+
+This will be decoded server-side before being passed to the SQL interpreter.
 
