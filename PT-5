@@ -52,3 +52,7 @@ Server, you can use the following to test a condition and trigger a delay depend
 
 Using this technique, we can retrieve data by testing one character at a time:
 '; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:{delay}'--
+
+Note
+There are various ways to trigger time delays withi SQL queries, and different techniques apply on different types of database.
+For more details, see the SQL injection cheat sheet.
