@@ -27,5 +27,5 @@ an int, may cause an error similar to the following:
 
 ERROR: invalid input syntax for type integer: "Example data"
 
-This type of query may also be useful if a character limit prevents you from triggering conditional
+This type of query may also be useful if a character limit prevents you from triggering conditional responses.
 
