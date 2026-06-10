@@ -14,3 +14,10 @@ LLMs can have a wide range of use cases in modern websites.
 - Translation
 - SEO improvement
 - Analysis of user-generated content, for example to track the tone of on-page comments.
+
+LLM attacks and prompt injection
+
+Many web LLM attacks rely on a technique known as prompt injection. This is where aan attacker uses prompts
+to manipulate an LLM's output. Prompt injection can result in the AI taking actions that fall outside of 
+its intended purpose, such as making incorrect calls to sensitive APIs or returning content that does
+not correspond to its guidelines.
