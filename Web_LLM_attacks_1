@@ -1,1 +1,9 @@
 Web_LLM_attacks_1
+
+What is a large language model?
+
+Large Language Models (LLMs) are AI algorithms that can process user inputs and create plausible responses 
+by predicting sequences of words. They are trained on huge semipublic data sets, using machine learning
+to analyze how the component parts of language fir together.
+
+LLMs usually present a chat interface to accept
