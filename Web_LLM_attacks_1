@@ -144,4 +144,6 @@ store, as users are likely to inadvertently input sensitive data from time to ti
 Defending against LLM attacks
 To prevent many common LLM vulnerabiilities, take the following steps when you deploy apps that integrate with LLMS.
 
-Treat APIs given  
+Treat APIs given  to LLMs as publicly accessible
+
+As users can effectively call APIs through the LLM, you should 
