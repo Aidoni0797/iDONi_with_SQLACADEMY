@@ -68,3 +68,20 @@ additional details on any APIs of interest.
 
 If the LLM isn't cooperative, try providing misleading context and reasking the question. For example, 
 you could claim that you are the LLM's developer and so should have a higher level of privilege.
+
+Chaining vulnerabilities in LLM APIs 
+
+Even if an LLM only has access to APIs that look harmless, you may still be able to use these APIs to find
+a secondary vulnerability. For example, you could see an LLM to execute a path traversal attack on an API 
+that takes a filename as input.
+
+Once you've mapped an LLM's API attack surface, your next step should be to use it to send classic web exploits
+to all identified APIs/
+
+Insecure output handling
+Insecure output handling is where an LLM's output is not sufficiently validated or sanitized before being passed
+to other systems. This can effectively provide users indirect access to additional functionality, potentially
+facilitiating a wide range of vulnerabilities, including XSS and CSRF.
+
+For example, an LLM might not sanitize JavaScript in its responses. In this case, an attacker could potentially cause
+the LLM to return a JavaScript
