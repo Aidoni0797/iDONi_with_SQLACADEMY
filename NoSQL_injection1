@@ -77,4 +77,8 @@ If this doesn't cause a syntax error, this may mean that the application is vuln
 
 Confirming conditional behavior
 
-After detecting a vulnerability, the next  step is to determine whether
+After detecting a vulnerability, the next  step is to determine whether you can influence boolean conditions using 
+NoSQL syntax.
+
+To test this, send two requests, one with a false condition and one with a true condition. For example you could use the conditional
+statements ' && 0 && 'x and ' && 1 && 'x as followsL
