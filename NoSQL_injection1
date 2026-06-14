@@ -65,4 +65,16 @@ payload via a JSON property instead. In this case, this payload would become
 
 Determining which characters are processed 
 To determine which characters are interpreted as syntax by the application, you can inject individual characters. For exmaple,
-you could submit 
+you could submit ', which results in the following MongoDB query:
+this.category == '''
+
+If this causes a change from the original response, this may indicate that the ' character has broken the query syntax
+and caused a syntax error. You can confirm this by submitting a valid query string in the input, for example by
+escaping the quote:
+this.category == '\''
+
+If this doesn't cause a syntax error, this may mean that the application is vulnerable to an injection attack.
+
+Confirming conditional behavior
+
+After 
