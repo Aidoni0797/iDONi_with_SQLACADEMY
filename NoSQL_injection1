@@ -159,4 +159,18 @@ try the following injection:
 
 If the $ne operator is applied, this queries all users where the username is not equal to invalid.
 
-If both the username 
+If both the username and password inputs process the operator, it may be possible to bypass authentication using the
+following payload:
+{"username":{"$ne":"invalid"},"password":{"$ne":"invalid"}}
+
+This query returns all login credetials where both the username and password are not equal to invalid. As a result,
+you're logged into the application as the first user in the collection.
+
+To target an account, you can construct a payload that includes a known username, or a username that you've guessed.
+For example:
+{"username":{"$in":["admin","administrator","superadmin"]},"password":{"$ne":""}}
+
+Exploting syntax injection to extract data
+
+In many NoSQL databases, some query operators or functions can run limited JavaScript code, such as MongoDB's $where
+operator and mapReduce() function.
