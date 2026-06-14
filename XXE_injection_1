@@ -169,5 +169,5 @@ attacks is to disable those features.
 
 Generally, it is sufficient to disable resolution of external entities and disable suppport for XIclude. This can usually
 be done via configuration options or by programmatically overridding default behaviour. Consult the documentation for your
-XML parsing library or API for 
+XML parsing library or API for details about how to disable unnecessary capabilities.
 
