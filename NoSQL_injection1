@@ -77,4 +77,4 @@ If this doesn't cause a syntax error, this may mean that the application is vuln
 
 Confirming conditional behavior
 
-After 
+After detecting a vulnerability, the next  step is to determine whether
