@@ -18,4 +18,51 @@ For more information about NoSQL databases and how they differ from SQL database
 Types of NoSQL injection
 
 THere are two different types of NoSQL injection:
-- Syntax injection - This occurs when you can break the NoSQL query 
+- Syntax injection - This occurs when you can break the NoSQL query syntax, enabling you to inject your own payload. The
+methodology is similar to that used in SQL injection. However the nature of the attack varies significantly, as NoSQL
+databases use a range of query languages, types of query syntax, and different data structures.
+- Operator injection - This occurs when you can use NoSQL query operators to manipulate queries.
+
+In this topic, we'll look at how to test for NoSQL vulnerabilities in general, then focus on exploting vulnerabilities
+in MongoDB, which is the most popular NoSQL database. We've also provided some labs so you can practice what you've 
+learned.
+
+NoSQL syntax injection
+
+You can potantially detect NoSQL injection vulnerabilities bt attempting to break the query syntax. To do this, systematically
+test each input by submitting fuzz strings and special characters that trigger a database error or some other detectable
+behaviour if they're not adequately sanitized or filtered by the application.
+
+If ypu know the API language of the target database, use special characters and fuzz strings that are relevant to that language.
+Otherwise, use a variety of fuzz strings to target multple API languages.
+
+Detecting syntax injection in MongiDB
+Consider a shopping application that displays products in different categories. When the user selects the Fizzy drinks category,
+their browser requests the following URL:
+https://insecure-website.com/product/lookup?category=fizzy
+
+This causes the application to send a JSON query to retrieve relevant products from the product collection in the MongoDB database:
+this.category == 'fizzy'
+
+To test whether the input may be vulnerable, submit a fuzz string in the value of the category parameter. An example 
+string for MongoDB is:
+'"`{
+;$Foo}
+$Foo \xYZ
+
+Use this fuzz string to construct the following attack:
+https://insecure-website.com/product/lookup?category='%22%60%7b%0d%0a%3b%24Foo%7d%0d%0a%24Foo%20%5cxYZ%00
+
+If this causes a change from the original response, this may indicate that user input isn't filtered or sanitized correctly.
+
+Note 
+NoSQL injection vulnerabilities can occur in a variety of context, and you need to adapt your fuzz strings accordingly.
+Otherwise, you may simply trigger validation errors that mean the application never executes your query.
+
+In this example, we're injecting the fuzz string via the URL-encoded. In some applications, you may need to inject your
+payload via a JSON property instead. In this case, this payload would become
+'\"`{\r;$Foo}\n$Foo \\xYZ\u0000.
+
+Determining which characters are processed 
+To determine which characters are interpreted as syntax by the application, you can inject individual characters. For exmaple,
+you could submit 
