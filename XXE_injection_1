@@ -150,4 +150,20 @@ The vast majority of XXE vulnerabilities can be found quickly and reliably using
 Manually texting for XXE vulnerabilities generally involves:
 - Testing for file retrieval by defining an external entity based on a well-known operating system file and using that 
 entity in data that is returned in the application's response.
-- Testing for blind XXE vulnerabilities by defining an external entity
+- Testing for blind XXE vulnerabilities by defining an external entity based on a well-known operating system file and using 
+that entity in data that is returned in the application's response.
+- Testing for blind XXE vulnerabilities by defining an external entity based on a URL to a system that you control, and 
+monitoring for interactions with that system. Burp Collaborator is perfect for this purpose.
+- Testing for vulnerable inclusion of user-supplied non-XML data within a server-side XML document by using  an XIclude 
+attack to try to retrieve a well-known operating system file.
+
+Note 
+Keep in mind that XML is just a data transfer format. Make sure you also test any XML-based functionality for other 
+vulnerabilities like XSS and SQL Injection. You may need to encode your payload using XML escape sequences to avoid 
+breaking the syntax, but you may also be able to use this to obduscate your attack in order to bypass weak defences.
+
+How to prevent XXEE vulnerabilities
+Virtually all XEE vulnerablities arise because the application's XML parsing library supports potentially dangerous 
+XML feautures thath the application does not need or intend to use. The easiest and most effective way to prevent XXE
+attacks is to disable thi
+
